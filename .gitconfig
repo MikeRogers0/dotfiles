@@ -1,6 +1,5 @@
 [user]
 	name = Mike Rogers
-	email = # ;)
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
