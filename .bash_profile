@@ -5,3 +5,7 @@ export PATH=/usr/local/bin:$PATH
 if [ -f ~/dotfiles/.git-completion.bash ]; then
   . ~/dotfiles/.git-completion.bash
 fi
+
+alias fr="foreman run"
+alias hr="heroku run"
+alias cdd="cd ../ && cd -"
