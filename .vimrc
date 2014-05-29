@@ -60,3 +60,7 @@ map <Leader>r :call RunAllSpecs()<CR>
 "let g:rspec_command = "Rrunner {spec}"
 "let g:rspec_command = "Dispatch zeus rspec {spec}"
 let g:rspec_command = "compiler rspec | set makeprg=spring | Make rspec {spec}"
+
+" Don't start new tabs in insert mode
+au BufWinEnter * set noinsertmode
+au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
