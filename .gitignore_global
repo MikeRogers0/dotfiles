@@ -32,7 +32,7 @@
 
 # OS generated files #
 ######################
-.DS_Store
+#.DS_Store I like these hanging around.
 .DS_Store?
 ._*
 .Spotlight-V100
