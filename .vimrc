@@ -35,8 +35,8 @@ set splitbelow
 set splitright
 
 " NERDTree Config
-map <leader>N :NERDTreeToggle<CR>
-map <leader>n :NERDTreeFind<CR>
+map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
 
