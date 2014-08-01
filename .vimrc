@@ -65,5 +65,5 @@ let g:rspec_command = "compiler rspec | set makeprg=spring | Make rspec {spec}"
 " au BufWinEnter * set noinsertmode
 " au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
 
-" ,cs copies current file path to clipboard.
-nmap <Leader>cs :let @*=expand("%")<CR>
+" ,cfp copies current file path to clipboard.
+nmap <Leader>cfp :let @*=expand("%")<CR>
