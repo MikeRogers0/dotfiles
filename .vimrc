@@ -62,5 +62,8 @@ map <Leader>r :call RunAllSpecs()<CR>
 let g:rspec_command = "compiler rspec | set makeprg=spring | Make rspec {spec}"
 
 " Don't start new tabs in insert mode
-au BufWinEnter * set noinsertmode
-au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
+" au BufWinEnter * set noinsertmode
+" au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
+
+" ,cs copies current file path to clipboard.
+nmap <Leader>cs :let @*=expand("%")<CR>
