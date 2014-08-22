@@ -67,3 +67,4 @@ let g:rspec_command = "compiler rspec | set makeprg=spring | Make rspec {spec}"
 
 " ,cfp copies current file path to clipboard.
 nmap <Leader>cfp :let @*=expand("%")<CR>
+nmap <Leader>ffle :set fileformat=unix<CR> " Fix line endines in a file.
