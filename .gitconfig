@@ -1,15 +1,16 @@
 [user]
 	name = Mike Rogers
+	email = me@mikerogers.io
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
 [alias]
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-    h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    amend = commit --amend
-    remove-last = reset --soft HEAD~1
-    remove-last-hard = reset --hard HEAD~1
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	amend = commit --amend
+	remove-last = reset --soft HEAD~1
+	remove-last-hard = reset --hard HEAD~1
 [color]
-    ui = auto
+	ui = auto
 [push]
 	default = current
