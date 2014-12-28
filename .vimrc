@@ -29,6 +29,7 @@ set noswapfile
 set encoding=utf-8
 
 " When spliting, focus on the new pane
+" ctrl+\ and ctrl+- also make new splits.
 map <C-\> :vsplit<CR>
 map <C-_> :split<CR>
 set splitbelow
@@ -39,6 +40,10 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
+" CommandP
+let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+map <Leader>t :CtrlP<CR>
 
 " Use silver surfer for Acking.
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -57,9 +62,6 @@ map <Leader>S :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 "map <Leader>l :call RunLastSpec()<CR>
 map <Leader>r :call RunAllSpecs()<CR>
-"let g:rspec_command = "Rrunner {spec}"
-"let g:rspec_command = "Dispatch zeus rspec {spec}"
-let g:rspec_command = "compiler rspec | set makeprg=spring | Make rspec {spec}"
 
 " Don't start new tabs in insert mode
 " au BufWinEnter * set noinsertmode
