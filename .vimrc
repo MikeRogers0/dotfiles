@@ -65,6 +65,11 @@ map <Leader>s :call RunNearestSpec()<CR>
 "map <Leader>l :call RunLastSpec()<CR>
 map <Leader>r :call RunAllSpecs()<CR>
 
+" In MVim run specs in a new buffer.
+if has('gui_running')
+	let g:rspec_command = "Dispatch echo 'Warming up' && rspec {spec}"
+endif
+
 " Don't start new tabs in insert mode
 " au BufWinEnter * set noinsertmode
 " au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
