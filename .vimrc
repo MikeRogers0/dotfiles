@@ -40,10 +40,12 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
-" CommandP
+" CtrlP
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 map <Leader>t :CtrlP<CR>
+" Ignore files in git ignore. From https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Use silver surfer for Acking.
 let g:ackprg = 'ag --nogroup --nocolor --column'
