@@ -79,3 +79,5 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 
 " ,ffle Fix line endines in a file.
 nmap <Leader>ffle :set fileformat=unix<CR>
+
+"" It's ctrl+p then F5 to refresh ctrlp's file list.
