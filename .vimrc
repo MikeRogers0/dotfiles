@@ -67,7 +67,7 @@ map <Leader>r :call RunAllSpecs()<CR>
 
 " In MVim run specs in a new buffer.
 if has('gui_running')
-	let g:rspec_command = "Dispatch echo 'Warming up' && rspec {spec}"
+	let g:rspec_command = "Dispatch echo 'Warming up' && foreman run rspec {spec}"
 endif
 
 " Don't start new tabs in insert mode
