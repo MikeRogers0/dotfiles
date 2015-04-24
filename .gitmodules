@@ -1,5 +1,5 @@
 [submodule ".vim/bundle/ack.vim"]
-	path = .vim/bunle/ack.vim
+	path = .vim/bundle/ack.vim
 	url = git@github.com:mileszs/ack.vim.git
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
@@ -14,7 +14,7 @@
 	path = .vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-bundler"]
-	path = .vim/bundle/vim-bundler.
+	path = .vim/bundle/vim-bundler
 	url = git@github.com:tpope/vim-bundler.git
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
