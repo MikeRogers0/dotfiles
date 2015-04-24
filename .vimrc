@@ -40,6 +40,12 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
+" Faster Pane switching
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
 " CtrlP
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
@@ -55,9 +61,9 @@ colorscheme solarized
 let g:solarized_termcolors=256
 
 if has('gui_running')
-	set background=light
+  set background=light
 else
-	set background=light
+  set background=light
 endif
 
 map <Leader>S :call RunCurrentSpecFile()<CR>
@@ -67,7 +73,9 @@ map <Leader>r :call RunAllSpecs()<CR>
 
 " In MVim run specs in a new buffer.
 if has('gui_running')
-	let g:rspec_command = "Dispatch echo 'Warming up' && foreman run rspec {spec}"
+  let g:rspec_command = "Dispatch echo 'Warming up' && foreman run rspec {spec}"
+else
+  let g:rspec_command = "Dispatch clear && foreman run rspec {spec}"
 endif
 
 " Don't start new tabs in insert mode
