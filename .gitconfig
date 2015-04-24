@@ -1,16 +1,25 @@
 [user]
-	name = Mike Rogers
-	email = me@mikerogers.io
+  name = Mike Rogers
+  email = me@mikerogers.io
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+  excludesfile = ~/.gitignore_global
+  editor = vim
 [alias]
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	amend = commit --amend
-	remove-last = reset --soft HEAD~1
-	remove-last-hard = reset --hard HEAD~1
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  amend = commit --amend
+  remove-last = reset --soft HEAD~1
+  remove-last-hard = reset --hard HEAD~1
+  amend = commit --amend
+  remove-last = reset --soft HEAD~1
+  remove-last-hard = reset --hard HEAD~1
+  co = checkout
+  current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
+  st = status
+  cm = commit -m
+  ca = commit -a
+  cam = commit -am
 [color]
-	ui = auto
+  ui = auto
 [push]
-	default = current
+  default = current
