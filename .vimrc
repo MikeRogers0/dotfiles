@@ -66,17 +66,12 @@ else
   set background=light
 endif
 
-map <Leader>S :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-map <Leader>r :call RunAllSpecs()<CR>
+function RunSpecs()
+  Dispatch foreman run rspec %
+endfunction
 
-" In MVim run specs in a new buffer.
-if has('gui_running')
-  let g:rspec_command = "Dispatch echo 'Warming up' && foreman run rspec {spec}"
-else
-  let g:rspec_command = "Dispatch clear && foreman run rspec {spec}"
-endif
+nmap <Leader>s :call RunSpecs()<CR>
+nmap <Leader>S :call RunSpecs()<CR>
 
 " Don't start new tabs in insert mode
 " au BufWinEnter * set noinsertmode
