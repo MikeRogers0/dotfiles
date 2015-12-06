@@ -6,6 +6,10 @@ if [ -f ~/dotfiles/.git-completion.bash ]; then
   . ~/dotfiles/.git-completion.bash
 fi
 
+if [ -f ~/dotfiles/.terminal-styling.bash ]; then
+  . ~/dotfiles/.terminal-styling.bash
+fi
+
 alias fr="foreman run"
 alias hr="heroku run"
 alias bx='bundle exec'
