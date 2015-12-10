@@ -85,5 +85,6 @@ nmap <Leader>ffle :set fileformat=unix<CR>
 
 "" It's ctrl+p then F5 to refresh ctrlp's file list.
 
-"" I'll fold myself thank you!
-set fdm=manual
+"" Folding setup.
+set foldmethod=indent
+set foldlevel=20
