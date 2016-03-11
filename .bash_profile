@@ -11,6 +11,7 @@ if [ -f ~/dotfiles/.terminal-styling.bash ]; then
 fi
 
 alias fr="foreman run"
+alias fs="foreman start"
 alias hr="heroku run"
 alias bx='bundle exec'
 alias s='spring'
