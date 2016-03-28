@@ -23,3 +23,4 @@ alias git_update_sub_folders='for REPO in `ls`; do (cd "$REPO"; git pull); done;
 
 alias tails='tail -f log/development.log'
 alias oinkers='oink --threshold=1 log/oink.log'
+alias unpickle_db='fr rake db:drop && fr rake db:create && fr rake:migrate && fr rake db:test:load && fr rake db:seed'
