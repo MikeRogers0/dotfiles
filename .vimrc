@@ -88,3 +88,11 @@ nmap <Leader>ffle :set fileformat=unix<CR>
 "" Folding setup.
 set foldmethod=indent
 set foldlevel=20
+
+" Auto complete for ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+" Spellcheck because I spell silly.
+setlocal spell spelllang=en_gb
