@@ -25,3 +25,13 @@ alias git_update_sub_folders='for REPO in `ls`; do (cd "$REPO"; git pull); done;
 alias tails='tail -f log/development.log'
 alias oinkers='oink --threshold=1 log/oink.log'
 alias unpickle_db='fr rake db:drop && fr rake db:create && fr rake db:migrate && fr rake db:test:load && fr rake db:seed'
+
+# Convert .mov files made by quicktime to smaller .mp4s.
+mov_to_mp4() {
+  ffmpeg -i "$1" -vcodec h264 -acodec mp3 "$1".mp4
+}
+
+# Convert .mov files made by quicktime to bigish .gif
+mov_to_gif() {
+  ffmpeg -i "$1" -pix_fmt rgb24 "$1".gif
+}
