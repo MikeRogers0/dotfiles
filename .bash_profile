@@ -34,7 +34,7 @@ reimport_db() {
 # mov_to_mp4 video.mov
 # It also tries to optimise for the OSX mic and for voice.
 mov_to_mp4() {
-  ffmpeg -i "$1" -vcodec h264 -acodec mp3 "volumedetect, volume=15dB" -filter:a "highpass=f=200, lowpass=f=2600" "$1".mp4
+  ffmpeg -i "$1" -vcodec h264 -acodec mp3 -af "volumedetect, volume=15dB" -filter:a "highpass=f=200, lowpass=f=2600" "$1".mp4
 }
 
 # Convert .mov files made by quicktime to bigish .gif
