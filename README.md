@@ -10,7 +10,7 @@ Copy parts of files as required, here is a quick few notes though:
 
 I usually use [MacVim](https://macvim-dev.github.io/macvim/) for writing & coding, to install plugins I used [vim-plug](https://github.com/junegunn/vim-plug).
 
-### Apps
+### Apps
 
 https://beardedspice.github.io/ - Stops iTunes opening when I press play/pause.
 
