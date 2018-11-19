@@ -8,7 +8,7 @@ Copy parts of files as required, here is a quick few notes though:
 
 ### Vim
 
-I usually use [MacVim](https://macvim-dev.github.io/macvim/) for writing & coding, to install plugins I used [vim-plug](https://github.com/junegunn/vim-plug).
+I usually use [MacVim](https://macvim-dev.github.io/macvim/) for writing & coding. To install plugins I used [vim-plug](https://github.com/junegunn/vim-plug).
 
 ### Apps
 
