@@ -6,7 +6,7 @@ My main setup, mostly copied from https://github.com/phil/dotfiles https://githu
 
 Copy parts of files as required, here is a quick few notes though:
 
-### Vim
+### Vim
 
 I usually use [MacVim](https://macvim-dev.github.io/macvim/) for writing & coding, to install plugins I used [vim-plug](https://github.com/junegunn/vim-plug).
 
