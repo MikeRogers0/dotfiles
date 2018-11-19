@@ -16,6 +16,8 @@ https://beardedspice.github.io/ - Stops iTunes opening when I press play/pause.
 
 http://magnet.crowdcafe.com/ - Allows for moving windows around the screen with key commands.
 
+https://imageoptim.com/mac - Compress images easily.
+
 ### Homebrew packages
 
 I don't like install to much stuff, but here are the main packages I installed
