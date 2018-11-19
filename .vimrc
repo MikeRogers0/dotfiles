@@ -1,50 +1,153 @@
-execute pathogen#infect()
+"
+" vim-plug
+" https://github.com/junegunn/vim-plug
+" Managing plugins
+" After running this, run:
+" PlugUpdate
+"
 
-" Reload with :source ~/.vimrc
+call plug#begin('~/.vim/plugged')
+" NERDTree
+Plug 'scrooloose/nerdtree'
 
-"Basic
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Linting
+Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+
+" Comments
+" Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
+
+" Search
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+
+" Syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'matthewbdaly/vim-filetype-settings'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'godlygeek/tabular'
+
+" Autocomplete
+" After install, run:
+" cd ~/.vim/plugged/YouCompleteMe
+" ./install.py --clang-completer
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+" HTML5
+" Plug 'othree/html5'
+
+" CSS
+" Plug 'csscomb/vim-csscomb'
+
+" Ruby on Rails
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+" Plug 'thoughtbot/vim-rspec'
+
+" Themes
+" Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
+" Plug 'altercation/vim-colors-solarized'
+Plug 'rakr/vim-one'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+"
+" Core bits
+"
+
 let mapleader=","
-set nocompatible
-set nocursorline
 set number
-
-
-syntax on
-filetype plugin indent on
-
 set expandtab
 set tabstop=4
 set shiftwidth=2
 set softtabstop=2
 set autoindent
 set linebreak
+set linespace=1
 
-" Temp Files
+" Add a vertical line at column 81
+set colorcolumn=81
+
+"
+" Colour Schemes
+"
+
+syntax enable
+filetype plugin indent on
+colorscheme one
+set background=dark
+" Add 'Source Code Pro' font via:
+" brew tap caskroom/fonts && brew cask install font-source-code-pro
+set guifont=Source\ Code\ Pro:h11
+
+"
+" Disable temp files and swap
+" 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-" Switch off Swap Files for now
 set noswapfile
+
+"
+" Encoding UTF-8
+"
 
 set encoding=utf-8
 
-" When spliting, focus on the new pane
-" ctrl+\ and ctrl+- also make new splits.
-map <C-\> :vsplit<CR>
-map <C-_> :split<CR>
-set splitbelow
-set splitright
+"
+" Spellchecker - British english
+"
 
-" NERDTree Config
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
+set spell spelllang=en_gb
+setlocal spell spelllang=en_gb
+
+"
+" Auto completion
+"
+
+au FileType ruby,eruby setl ofu=rubycomplete#Complete
+au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+au FileType css setl ofu=csscomplete#CompleteCSS
+
+"
+" Folding
+"
+
+set foldmethod=indent
+set foldlevel=20
+
+"
+" Other shortcuts I use sometimes.
+"
+
+" ,cfp copies current file path to clipboard.
+nmap <Leader>cfp :let @*=expand("%")<CR>
+
+" ,ffle Fix line endines in a file.
+nmap <Leader>ffle :set fileformat=unix<CR>
+
+
+
+"
+" Plugin Configuration
+"
+
+" NERDTree
+map <leader>N :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
-
-" Faster Pane switching
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 
 " CtrlP
 let g:ctrlp_map = '<Leader>p'
@@ -53,46 +156,49 @@ map <Leader>t :CtrlP<CR>
 " Ignore files in git ignore. From https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-" Use silver surfer for Acking.
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Ack
+" Also run:
+" brew install the_silver_searcher
+let g:ackprg = 'ag --vimgrep'
 
-syntax enable
-colorscheme solarized
-let g:solarized_termcolors=256
+" Airline
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
-if has('gui_running')
-  set background=light
-else
-  set background=light
-endif
+" Vim Rails
+let g:rails_default_file='config/database.yml'
 
-function RunSpecs()
-  Dispatch foreman run rspec %
-endfunction
+"
+" Asynchronous Lint Engine - https://github.com/w0rp/ale
+" Also run:
+" npm install -g eslinter
+"
+let g:airline#extensions#ale#enabled = 0
+" Only Lint when I've changed a file.
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+" Other ale config.
+let g:ale_set_balloons = 0
+let g:ale_set_highlights = 1
+let g:ale_set_signs = 1
+let g:ale_scss_stylelint_use_global = 1
+let g:ale_sign_column_always = 1
+" Highlight the bad lines.
+highlight link ALEErrorLine error
+"highlight link ALEWarningLine todo
+"highlight ALESignColumnWithoutErrors guibg=#EEE8D5
+"highlight ALESignColumnWithErrors guibg=#EEE1D5
+silent! helptags ALL
 
-nmap <Leader>s :call RunSpecs()<CR>
-nmap <Leader>S :call RunSpecs()<CR>
+"highlight link ALEErrorLine error
+"highlight link ALEWarningLine todo
 
-" Don't start new tabs in insert mode
-" au BufWinEnter * set noinsertmode
-" au BufWinEnter *.php,*.js,*.inc,*.css,*.html,*.htm set insertmode | imap <buffer> <Esc> <C-l>
+highlight clear ALEErrorLine
 
-" ,cfp copies current file path to clipboard.
-nmap <Leader>cfp :let @*=expand("%")<CR>
+" Don't lint .erb files, the linter is shit.
+let g:ale_pattern_options = {'\.erb$': {'ale_enabled': 0}}
 
-" ,ffle Fix line endines in a file.
-nmap <Leader>ffle :set fileformat=unix<CR>
+highlight error guifg=#fdf6e3 guibg=#af0000 
+"highlight todo guifg=#fdf6e3 guibg=#af005f
+highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
 
-"" It's ctrl+p then F5 to refresh ctrlp's file list.
-
-"" Folding setup.
-set foldmethod=indent
-set foldlevel=20
-
-" Auto complete for ruby
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-
-" Spellcheck because I spell silly.
-setlocal spell spelllang=en_gb
