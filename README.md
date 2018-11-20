@@ -39,6 +39,7 @@ I don't like install to much stuff, but here are the main packages I installed
     the_silver_searcher
     yarn
     ffmpeg
+    vim --with-lua --with-override-system-vi
 
 ### MacOS tweaks
 
