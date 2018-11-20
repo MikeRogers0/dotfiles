@@ -44,6 +44,12 @@ I don't like install to much stuff, but here are the main packages I installed
 
 I try to leave MacOS as default as possible, but here are some terminal commands I run to make things a bit snappier & suitable for dev.
 
+    # Do not keep wifi connected while powered off
+    sudo pmset -b tcpkeepalive 0
+    
+    # Do not keep power to the RAM while sleeping
+    sudo pmset -a hibernatemode 25
+
     # Speed up window tranisations
     defaults write NSGlobalDomain NSWindowResizeTime 0.01;
 
