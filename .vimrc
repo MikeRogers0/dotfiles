@@ -129,6 +129,12 @@ set foldmethod=indent
 set foldlevel=20
 
 "
+" Autoupdate files when they're changed outside of vim
+"
+
+set autoread
+
+"
 " Other shortcuts I use sometimes.
 "
 
@@ -138,7 +144,8 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 " ,ffle Fix line endines in a file.
 nmap <Leader>ffle :set fileformat=unix<CR>
 
-
+" ,aff - Auto fix this file with rubocop
+nmap <Leader>aff :silent ! rubocop % --fix<CR>
 
 "
 " Plugin Configuration
@@ -201,4 +208,3 @@ let g:ale_pattern_options = {'\.erb$': {'ale_enabled': 0}}
 highlight error guifg=#fdf6e3 guibg=#af0000 
 "highlight todo guifg=#fdf6e3 guibg=#af005f
 highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
-
