@@ -145,7 +145,7 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! rubocop % --fix<CR>
+nmap <Leader>aff :silent ! rubocop % --safe-auto-correct<CR>
 
 "
 " Plugin Configuration
