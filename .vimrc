@@ -147,6 +147,12 @@ nmap <Leader>ffle :set fileformat=unix<CR>
 " ,aff - Auto fix this file with rubocop
 nmap <Leader>aff :silent ! rubocop % --safe-auto-correct<CR>
 
+" ,s - Run current line RSpec
+nmap <Leader>s :! bundle exec rspec --no-color %:<C-r>=line('.')<CR><CR>
+
+" ,S - Run current file in RSpec
+nmap <Leader>S :! bundle exec rspec --no-color %<CR>
+
 "
 " Plugin Configuration
 "
