@@ -20,6 +20,8 @@ http://magnet.crowdcafe.com/ - Allows for moving windows around the screen with 
 
 https://imageoptim.com/mac - Compress images easily.
 
+https://github.com/jamsinclair/ballast - Fix that annoying Bluetooth bug which makes audio play drift to one ear.
+
 ### Homebrew packages
 
 I don't like install to much stuff, but here are the main packages I installed
