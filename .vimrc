@@ -16,10 +16,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Linting
 Plug 'neomake/neomake'
-Plug 'w0rp/ale'
 
 " Comments
-" Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 
 " Search
@@ -35,22 +33,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
 
 " Autocomplete
-" After install, run:
-" cd ~/.vim/plugged/YouCompleteMe
-" ./install.py --clang-completer
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" HTML5
-" Plug 'othree/html5'
-
-" CSS
-" Plug 'csscomb/vim-csscomb'
 
 " Ruby on Rails
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-" Plug 'thoughtbot/vim-rspec'
 
 " Themes
 " Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
@@ -179,44 +167,11 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " Ack
 " Also run:
 " brew install the_silver_searcher
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --hidden --vimgrep'
 
 " Airline
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 set laststatus=2
-
-" Vim Rails
-let g:rails_default_file='config/database.yml'
-
-"
-" Asynchronous Lint Engine - https://github.com/w0rp/ale
-" Also run:
-" npm install -g eslinter
-"
-let g:airline#extensions#ale#enabled = 0
-" Only Lint when I've changed a file.
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-" Other ale config.
-let g:ale_set_balloons = 0
-let g:ale_set_highlights = 1
-let g:ale_set_signs = 1
-let g:ale_scss_stylelint_use_global = 1
-let g:ale_sign_column_always = 1
-" Highlight the bad lines.
-highlight link ALEErrorLine error
-"highlight link ALEWarningLine todo
-"highlight ALESignColumnWithoutErrors guibg=#EEE8D5
-"highlight ALESignColumnWithErrors guibg=#EEE1D5
-silent! helptags ALL
-
-"highlight link ALEErrorLine error
-"highlight link ALEWarningLine todo
-
-highlight clear ALEErrorLine
-
-" Don't lint .erb files, the linter is shit.
-let g:ale_pattern_options = {'\.erb$': {'ale_enabled': 0}}
 
 highlight error guifg=#fdf6e3 guibg=#af0000 
 "highlight todo guifg=#fdf6e3 guibg=#af005f
