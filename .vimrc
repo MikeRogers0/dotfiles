@@ -16,10 +16,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Linting
 Plug 'neomake/neomake'
-Plug 'w0rp/ale'
 
 " Comments
-" Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 
 " Search
@@ -35,27 +33,18 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
 
 " Autocomplete
-" After install, run:
-" cd ~/.vim/plugged/YouCompleteMe
-" ./install.py --clang-completer
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" HTML5
-" Plug 'othree/html5'
-
-" CSS
-" Plug 'csscomb/vim-csscomb'
 
 " Ruby on Rails
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-" Plug 'thoughtbot/vim-rspec'
 
 " Themes
 " Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
+Plug 'marcopaganini/termschool-vim-theme'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -84,10 +73,16 @@ set colorcolumn=81
 " Colour Schemes
 "
 
+set t_Co=256
 syntax enable
 filetype plugin indent on
-colorscheme one
+
+" Use a high contrast solarized
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
 set background=dark
+colorscheme solarized
+
 " Add 'Source Code Pro' font via:
 " brew tap caskroom/fonts && brew cask install font-source-code-pro
 set guifont=Source\ Code\ Pro:h11
@@ -107,7 +102,7 @@ set noswapfile
 set encoding=utf-8
 
 "
-" Spellchecker - British english
+" Spellchecker - British English
 "
 
 set spell spelllang=en_gb
@@ -128,7 +123,7 @@ au FileType css setl ofu=csscomplete#CompleteCSS
 set foldmethod=indent
 set foldlevel=20
 
-"
+" 
 " Autoupdate files when they're changed outside of vim
 "
 
@@ -145,13 +140,13 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! rubocop % --safe-auto-correct<CR>
+nmap <Leader>aff :silent ! docker-compose run --rm --no-deps web rubocop % --safe-auto-correct<CR>
 
 " ,s - Run current line RSpec
-nmap <Leader>s :! bundle exec rspec --no-color <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
+nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
 
 " ,S - Run current file in RSpec
-nmap <Leader>S :! bundle exec rspec --no-color %<CR>
+nmap <Leader>S :! run_ruby_tests %<CR>
 
 "
 " Plugin Configuration
@@ -172,45 +167,13 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " Ack
 " Also run:
 " brew install the_silver_searcher
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --hidden --vimgrep'
 
 " Airline
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-" Vim Rails
-let g:rails_default_file='config/database.yml'
-
-"
-" Asynchronous Lint Engine - https://github.com/w0rp/ale
-" Also run:
-" npm install -g eslinter
-"
-let g:airline#extensions#ale#enabled = 0
-" Only Lint when I've changed a file.
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-" Other ale config.
-let g:ale_set_balloons = 0
-let g:ale_set_highlights = 1
-let g:ale_set_signs = 1
-let g:ale_scss_stylelint_use_global = 1
-let g:ale_sign_column_always = 1
-" Highlight the bad lines.
-highlight link ALEErrorLine error
-"highlight link ALEWarningLine todo
-"highlight ALESignColumnWithoutErrors guibg=#EEE8D5
-"highlight ALESignColumnWithErrors guibg=#EEE1D5
-silent! helptags ALL
-
-"highlight link ALEErrorLine error
-"highlight link ALEWarningLine todo
-
-highlight clear ALEErrorLine
-
-" Don't lint .erb files, the linter is shit.
-let g:ale_pattern_options = {'\.erb$': {'ale_enabled': 0}}
-
 highlight error guifg=#fdf6e3 guibg=#af0000 
 "highlight todo guifg=#fdf6e3 guibg=#af005f
 highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
+
