@@ -54,8 +54,9 @@ Plug 'vim-ruby/vim-ruby'
 
 " Themes
 " Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
+Plug 'marcopaganini/termschool-vim-theme'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -84,10 +85,16 @@ set colorcolumn=81
 " Colour Schemes
 "
 
+set t_Co=256
 syntax enable
 filetype plugin indent on
-colorscheme one
+
+" Use a high contrast solarized
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
 set background=dark
+colorscheme solarized
+
 " Add 'Source Code Pro' font via:
 " brew tap caskroom/fonts && brew cask install font-source-code-pro
 set guifont=Source\ Code\ Pro:h11
@@ -107,7 +114,7 @@ set noswapfile
 set encoding=utf-8
 
 "
-" Spellchecker - British english
+" Spellchecker - British English
 "
 
 set spell spelllang=en_gb
@@ -128,7 +135,7 @@ au FileType css setl ofu=csscomplete#CompleteCSS
 set foldmethod=indent
 set foldlevel=20
 
-"
+" 
 " Autoupdate files when they're changed outside of vim
 "
 
@@ -145,13 +152,13 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! rubocop % --safe-auto-correct<CR>
+nmap <Leader>aff :silent ! docker-compose run --rm --no-deps web rubocop % --safe-auto-correct<CR>
 
 " ,s - Run current line RSpec
-nmap <Leader>s :! bundle exec rspec --no-color <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
+nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
 
 " ,S - Run current file in RSpec
-nmap <Leader>S :! bundle exec rspec --no-color %<CR>
+nmap <Leader>S :! run_ruby_tests %<CR>
 
 "
 " Plugin Configuration
@@ -175,7 +182,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:ackprg = 'ag --vimgrep'
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 set laststatus=2
 
 " Vim Rails
@@ -214,3 +221,4 @@ let g:ale_pattern_options = {'\.erb$': {'ale_enabled': 0}}
 highlight error guifg=#fdf6e3 guibg=#af0000 
 "highlight todo guifg=#fdf6e3 guibg=#af005f
 highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
+
