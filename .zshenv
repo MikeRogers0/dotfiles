@@ -18,6 +18,7 @@ alias puma_logs='tail -f ~/Library/Logs/puma-dev.log'
 alias dcu='docker-compose up'
 alias dcr='docker-compose run --rm --no-deps web'
 alias dcd='docker-compose down'
+alias docker-cleanup='docker rmi $(docker images -q) --force'
 
 # reimport_db project_development file.sql
 reimport_db() {
