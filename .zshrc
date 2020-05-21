@@ -6,8 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Use RBenv for Ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-eval "$(rbenv init -)"
+# I removed this, I only use Docker for it now.
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# eval "$(rbenv init -)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -15,7 +16,7 @@ eval "$(rbenv init -)"
 TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/Mike/.oh-my-zsh"
+export ZSH="/Users/mike/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
