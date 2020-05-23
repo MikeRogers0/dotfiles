@@ -140,7 +140,7 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! docker-compose run --rm --no-deps web rubocop % --safe-auto-correct<CR>
+nmap <Leader>aff :silent ! docker-compose run --rm --no-deps web bundle exec rubocop % --safe-auto-correct<CR>
 
 " ,s - Run current line RSpec
 nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
