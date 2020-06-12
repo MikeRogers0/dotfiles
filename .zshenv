@@ -20,6 +20,9 @@ alias dcr='docker-compose run --rm --no-deps web'
 alias dcd='docker-compose down'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
 
+# Docker Image commands
+alias here-ruby="docker run --rm -it -v $(pwd):/usr/src/app ruby:2.7.1-buster /bin/sh -c 'cd /usr/src/app && bash'"
+
 # reimport_db project_development file.sql
 reimport_db() {
   pg_restore --verbose --clean --no-acl --no-owner -j 2 -h localhost -d "$1" "$2"
