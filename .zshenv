@@ -21,7 +21,7 @@ alias dcd='docker-compose down'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
 
 # Docker Image commands
-alias here-ruby="docker run --rm -it -v $(pwd):/usr/src/app ruby:2.7.1-buster /bin/sh -c 'cd /usr/src/app && bash'"
+alias here-ruby="docker run --rm -it -e HOST_PWD=$(pwd) -v $(pwd):/usr/src/app ruby:2.7.1-buster /bin/sh -c 'cd /usr/src/app && bash'"
 
 # reimport_db project_development file.sql
 reimport_db() {
