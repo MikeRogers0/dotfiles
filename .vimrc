@@ -71,8 +71,9 @@ set autoindent
 set linebreak
 set linespace=1
 
-" Add a vertical line at column 81
-set colorcolumn=81
+" Add a vertical line at column 120
+set colorcolumn=120
+highlight ColorColumn guibg=#202020
 
 "
 " Colour Schemes
@@ -183,7 +184,6 @@ let g:ackprg = 'ag --path-to-ignore ~/.ignore --hidden --vimgrep'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-highlight error guifg=#fdf6e3 guibg=#af0000 
+"highlight error guifg=#fdf6e3 guibg=#af0000
 "highlight todo guifg=#fdf6e3 guibg=#af005f
-highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
-
+"highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
