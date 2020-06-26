@@ -71,10 +71,6 @@ set autoindent
 set linebreak
 set linespace=1
 
-" Add a vertical line at column 120
-set colorcolumn=120
-highlight ColorColumn guibg=#202020
-
 "
 " Colour Schemes
 "
@@ -88,6 +84,10 @@ let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
 set background=dark
 colorscheme twilight256
+
+" Add a vertical line at column 120
+set colorcolumn=120
+highlight ColorColumn guibg=#202020
 
 " Add 'Source Code Pro' font via:
 " brew tap caskroom/fonts && brew cask install font-source-code-pro
