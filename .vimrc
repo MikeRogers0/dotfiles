@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " NERDTree
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
