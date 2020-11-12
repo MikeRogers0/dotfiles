@@ -23,3 +23,5 @@
   ui = auto
 [push]
   default = current
+[pull]
+  rebase = false

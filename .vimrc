@@ -91,7 +91,9 @@ highlight ColorColumn guibg=#202020
 
 " Add 'Source Code Pro' font via:
 " brew tap caskroom/fonts && brew cask install font-source-code-pro
-" set guifont=Source\ Code\ Pro:h11
+set guifont=Source\ Code\ Pro:h13
+" https://github.com/shannpersand/comic-shanns
+" set guifont=Comic\ Shanns:h13
 
 "
 " Disable temp files and swap
@@ -151,7 +153,7 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! docker-compose run --rm --no-deps web bundle exec rubocop % --safe-auto-correct<CR>
+nmap <Leader>aff :silent ! rubocop -a %<CR>
 
 " ,s - Run current line RSpec
 nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
@@ -187,3 +189,7 @@ set laststatus=2
 "highlight error guifg=#fdf6e3 guibg=#af0000
 "highlight todo guifg=#fdf6e3 guibg=#af005f
 "highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
+
+
+" Disable the visual/audio bell, it's so annoying
+set visualbell t_vb=

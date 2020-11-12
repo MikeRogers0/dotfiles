@@ -15,14 +15,19 @@ alias tails='tail -f log/development.log'
 alias puma_logs='tail -f ~/Library/Logs/puma-dev.log'
 
 # Docker Commands
-alias dcu='docker-compose up'
+alias dcu='docker-compose up  --remove-orphans'
 alias dcr='docker-compose run --rm --no-deps web'
+alias dce='docker-compose exec web'
 alias dcd='docker-compose down'
+alias docker-clean='docker image prune'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
+
+# Disable Spring - Especially in Dockerland it adds no value
+DISABLE_SPRING=1
 
 # Docker Image commands
 here-ruby() {
-  docker run --rm -it -e HOST_PWD=$(pwd) -v $(pwd):/usr/src/app ruby:2.7.1-buster /bin/sh -c 'cd /usr/src/app && bash'
+  docker run --rm -it -p 8080:8080 -e HOST_PWD=$(pwd) -v $(pwd):/usr/src/app ruby:2.7.1-alpine /bin/sh -c 'cd /usr/src/app && sh'
 }
 
 # reimport_db project_development file.sql
