@@ -6,7 +6,7 @@ In 2020 I aimed to install as few "things" as possible on a new machine & keep e
 
 ## How to setup
 
-Copy parts of files as required, here is a quick few notes though:
+Copy parts of files as required. I did setup `./install.sh`, though I'm not sure if that'll work every time.
 
 ### Vim
 
@@ -32,4 +32,4 @@ https://www.docker.com/products/docker-desktop - Docker
 
 ### Brew
 
-Everything I've normally got installed is in the `Brewfile`.
+Everything I've normally got installed is in the `Brewfile`, run `brew bundle` to install.

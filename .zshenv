@@ -61,3 +61,6 @@ run_ruby_tests() {
     docker-compose run --rm --no-deps web bundle exec rails test --no-color $SPECPATH;
   fi
 }
+
+# Configure Python
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
