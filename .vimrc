@@ -55,6 +55,9 @@ Plug 'vim-scripts/twilight256.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Linting
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 "
@@ -142,6 +145,9 @@ set foldlevel=20
 
 set autoread
 
+" Disable the visual/audio bell, it's so annoying
+set visualbell t_vb=
+
 "
 " Other shortcuts I use sometimes.
 "
@@ -153,7 +159,7 @@ nmap <Leader>cfp :let @*=expand("%")<CR>
 nmap <Leader>ffle :set fileformat=unix<CR>
 
 " ,aff - Auto fix this file with rubocop
-nmap <Leader>aff :silent ! rubocop -a %<CR>
+"nmap <Leader>aff :silent ! rubocop -a %<CR>
 
 " ,s - Run current line RSpec
 nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
@@ -190,6 +196,40 @@ set laststatus=2
 "highlight todo guifg=#fdf6e3 guibg=#af005f
 "highlight SignColumn guifg=#93A1A1 guibg=#EEE8D5
 
+" ALE
+let g:ale_fix_on_save = 0
 
-" Disable the visual/audio bell, it's so annoying
-set visualbell t_vb=
+"" Errors
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_set_highlights = 0
+
+"" Linting
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_ignore_lsp = 1
+
+let g:ale_linters = {
+      \ 'ruby': ['rubocop']
+      \ }
+
+let g:ale_fixers = {
+      \ 'ruby': ['remove_trailing_lines', 'trim_whitespace', 'rubocop'],
+      \ 'css': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
+      \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
+      \ 'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
+      \ 'html': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
+      \ 'eruby': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
+      \ '*': ['remove_trailing_lines', 'trim_whitespace']
+      \ }
+
+" nmap <silent> [a <Plug>(ale_previous_wrap)
+" nmap <silent> ]a <Plug>(ale_next_wrap)
+
+" nnoremap <Leader>ar :ALEFindReferences<CR>
+" nnoremap <Leader>as :ALESymbolSearch<CR>
+nnoremap <Leader>af :ALEFix<CR>
+nnoremap <Leader>al :ALELint<CR>

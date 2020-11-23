@@ -47,3 +47,13 @@ echo ""
 echo "Installing Vim plugins"
 
 # vim +PlugInstall +qall >/dev/null 2>&1
+
+echo ""
+echo "Install Ruby Gems"
+
+gem install rubocop
+gem install rubocop-rspec
+gem install rubocop-rails
+gem install rubocop-performance
+
+npm install -g prettier
