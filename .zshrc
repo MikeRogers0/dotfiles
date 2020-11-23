@@ -14,7 +14,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/Mike/.oh-my-zsh"
+export ZSH="/Users/mike/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
