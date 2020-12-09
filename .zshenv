@@ -56,9 +56,11 @@ run_ruby_tests() {
   fi
 
   if [[ $SPECPATH = spec* ]]; then
-    docker-compose run --rm --no-deps web bundle exec rspec --no-color $SPECPATH;
+    bundle exec rspec --no-color $SPECPATH;
+    # docker-compose run --rm --no-deps web bundle exec rspec --no-color $SPECPATH;
   elif [[ $SPECPATH = test* ]]; then
-    docker-compose run --rm --no-deps web bundle exec rails test --no-color $SPECPATH;
+    bundle exec rails test --no-color $SPECPATH;
+    # docker-compose run --rm --no-deps web bundle exec rails test --no-color $SPECPATH;
   fi
 }
 

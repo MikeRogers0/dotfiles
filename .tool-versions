@@ -4,3 +4,4 @@ nodejs 14.14.0
 rust 1.47.0
 python 3.9.0
 crystal 0.35.1
+postgres 13.1
