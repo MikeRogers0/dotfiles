@@ -48,17 +48,17 @@ mov_to_mp4() {
 run_ruby_tests() {
   SPECPATH=$1;
 
-  if [[ $SPECPATH != spec* && $SPECPATH != test* ]]; then
+  if [[ $SPECPATH != *_spec* && $SPECPATH != *_test* ]]; then
     SPECPATH=`cat ~/.run_ruby_tests`;
     echo "Testing: $SPECPATH";
   else
     echo $1 > ~/.run_ruby_tests
   fi
 
-  if [[ $SPECPATH = spec* ]]; then
+  if [[ $SPECPATH = *_spec* ]]; then
     bundle exec rspec --no-color $SPECPATH;
     # docker-compose run --rm --no-deps web bundle exec rspec --no-color $SPECPATH;
-  elif [[ $SPECPATH = test* ]]; then
+  elif [[ $SPECPATH = *_test* ]]; then
     bundle exec rails test --no-color $SPECPATH;
     # docker-compose run --rm --no-deps web bundle exec rails test --no-color $SPECPATH;
   fi
