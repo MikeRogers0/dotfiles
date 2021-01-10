@@ -213,11 +213,11 @@ let g:ale_set_quickfix = 0
 let g:ale_ignore_lsp = 1
 
 let g:ale_linters = {
-      \ 'ruby': ['rubocop']
+      \ 'ruby': ['standardrb']
       \ }
 
 let g:ale_fixers = {
-      \ 'ruby': ['remove_trailing_lines', 'trim_whitespace', 'rubocop'],
+      \ 'ruby': ['remove_trailing_lines', 'trim_whitespace', 'standardrb'],
       \ 'css': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
       \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
       \ 'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
