@@ -46,10 +46,11 @@ Plug 'vim-ruby/vim-ruby'
 
 " Themes
 " Plug 'nanotech/jellybeans.vim'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 " Plug 'rakr/vim-one'
 " Plug 'marcopaganini/termschool-vim-theme'
-Plug 'vim-scripts/twilight256.vim'
+" Plug 'vim-scripts/twilight256.vim'
+Plug 'trusktr/seti.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -86,7 +87,7 @@ filetype plugin indent on
 let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
 set background=dark
-colorscheme twilight256
+colorscheme seti
 
 " Add a vertical line at column 120
 set colorcolumn=120
