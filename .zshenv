@@ -14,6 +14,8 @@ alias git_add_to_last_commit='git commit --amend -C HEAD --no-verify'
 alias tails='tail -f log/development.log'
 alias puma_logs='tail -f ~/Library/Logs/puma-dev.log'
 
+alias git-churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
+
 # Docker Commands
 alias dcu='docker-compose up  --remove-orphans'
 alias dcr='docker-compose run --rm --no-deps web'
