@@ -1,5 +1,8 @@
 export LESS=eFRX
 
+# zsh calls compinit a lot, so disabling it to make things faster
+export skip_global_compinit=1
+
 # Alias commands
 
 alias bx='bundle exec'
@@ -9,7 +12,6 @@ alias clear_all_logs="find ~/ -iname '*.log' -exec dd if=/dev/null of={} \;"
 alias git_cleanup='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias git_remove_all_branches_but_master='git branch | grep -v "master" | xargs git branch -D && git fetch --prune --all'
 alias git_update_sub_folders='for REPO in `ls`; do (cd "$REPO"; git pull); done;'
-alias git_add_to_last_commit='git commit --amend -C HEAD --no-verify'
 
 alias tails='tail -f log/development.log'
 alias puma_logs='tail -f ~/Library/Logs/puma-dev.log'
@@ -24,8 +26,12 @@ alias dcd='docker-compose down'
 alias docker-clean='docker image prune'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
 
+# MacOS Commands
+alias spotlight_off='sudo mdutil -i off'
+alias spotlight_on='sudo mdutil -i on'
+
 # Disable Spring - Especially in Dockerland it adds no value
-DISABLE_SPRING=1
+export DISABLE_SPRING=1
 
 # Docker Image commands
 here-ruby() {
