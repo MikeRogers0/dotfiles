@@ -4,6 +4,15 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
+  autocrlf = input
+[color]
+  ui = auto
+[push]
+  default = current
+[pull]
+  rebase = false
+[init]
+  defaultBranch = main
 [alias]
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -19,9 +28,18 @@
   cm = commit -m
   ca = commit -a
   cam = commit -am
-[color]
-  ui = auto
-[push]
-  default = current
-[pull]
-  rebase = false
+  add-to-last-commit = commit --amend -C HEAD --no-verify
+
+# Use SSH over HTTPs when talking to GitHub always.
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
