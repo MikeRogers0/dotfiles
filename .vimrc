@@ -44,6 +44,10 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
+" Testing
+Plug 'tpope/vim-dispatch'
+Plug 'skywind3000/asyncrun.vim'
+
 " Themes
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'altercation/vim-colors-solarized'
@@ -163,10 +167,10 @@ nmap <Leader>ffle :set fileformat=unix<CR>
 "nmap <Leader>aff :silent ! rubocop -a %<CR>
 
 " ,s - Run current line RSpec
-nmap <Leader>s :! run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
+nmap <Leader>s :AsyncRun -mode=terminal -pos=bottom -rows=15 -cols=40 -strip -focus=0 run_ruby_tests <C-r>=system('echo ' . expand('%') . ':' . line('.'))<CR><CR>
 
 " ,S - Run current file in RSpec
-nmap <Leader>S :! run_ruby_tests %<CR>
+nmap <Leader>S :AsyncRun -mode=terminal -pos=bottom -rows=15 -cols=40 -strip -focus=0 run_ruby_tests %<CR>
 
 "
 " Plugin Configuration
@@ -220,6 +224,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'ruby': ['remove_trailing_lines', 'trim_whitespace', 'standardrb'],
       \ 'css': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
+      \ 'scss': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
       \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
       \ 'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
       \ 'html': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
