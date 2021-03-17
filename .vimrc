@@ -78,6 +78,7 @@ set softtabstop=2
 set autoindent
 set linebreak
 set linespace=1
+set shell=/bin/zsh
 
 "
 " Colour Schemes
@@ -228,6 +229,7 @@ let g:ale_fixers = {
       \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
       \ 'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier', 'eslint'],
       \ 'html': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
+      \ 'erb': ['remove_trailing_lines', 'trim_whitespace', 'htmlbeautifier'],
       \ 'eruby': ['remove_trailing_lines', 'trim_whitespace', 'prettier_standard', 'prettier'],
       \ '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }
