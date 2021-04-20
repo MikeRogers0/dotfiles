@@ -53,8 +53,8 @@ Plug 'skywind3000/asyncrun.vim'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'rakr/vim-one'
 " Plug 'marcopaganini/termschool-vim-theme'
-" Plug 'vim-scripts/twilight256.vim'
-Plug 'trusktr/seti.vim'
+Plug 'vim-scripts/twilight256.vim'
+" Plug 'trusktr/seti.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -92,7 +92,7 @@ filetype plugin indent on
 let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
 set background=dark
-colorscheme seti
+colorscheme twilight256
 
 " Add a vertical line at column 120
 set colorcolumn=120
@@ -106,7 +106,7 @@ set guifont=Source\ Code\ Pro:h13
 
 "
 " Disable temp files and swap
-" 
+"
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -145,7 +145,7 @@ set completeopt=menu,preview
 set foldmethod=indent
 set foldlevel=20
 
-" 
+"
 " Autoupdate files when they're changed outside of vim
 "
 
