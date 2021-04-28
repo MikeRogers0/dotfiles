@@ -27,7 +27,7 @@ alias docker-clean='docker image prune'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
 
 # Speed up make commands
-export MAKE="make -j$(nproc)"
+export MAKE="make --jobs $(nproc)"
 
 # MacOS Commands
 alias spotlight_off='sudo mdutil -i off'
