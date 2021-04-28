@@ -26,6 +26,9 @@ alias dcd='docker-compose down'
 alias docker-clean='docker image prune'
 alias docker-cleanup='docker rmi $(docker images -q) --force'
 
+# Speed up make commands
+export MAKE="make -j$(nproc)"
+
 # MacOS Commands
 alias spotlight_off='sudo mdutil -i off'
 alias spotlight_on='sudo mdutil -i on'
