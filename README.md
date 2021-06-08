@@ -32,4 +32,4 @@ https://www.docker.com/products/docker-desktop - Docker
 
 ### Brew
 
-Everything I've normally got installed is in the `Brewfile`, run `brew bundle` to install.
+Everything I've normally got installed is in the `Brewfile`, run `brew bundle` to install. To create a new dump run `brew bundle dump --force --describe`
